@@ -7,7 +7,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  void initState() async {
+  
+  MyApp(){
+    checkPermissions();
+  }
+  
+  void checkPermissions() async {
     bool locationPermit = await Nearby().checkLocationPermission();
     bool storagePermit = await Nearby().checkExternalStoragePermission();
     // asks for permission only if its not given
